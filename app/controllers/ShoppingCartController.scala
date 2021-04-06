@@ -15,12 +15,12 @@ class ShoppingCartController @Inject()(val controllerComponents: ControllerCompo
     Ok("shopping cart created")
   }
 
-  def addProduct(productId: Long, id: Long) = Action { implicit request: Request[AnyContent] =>
-    Ok("product " + productId + " added to cart " + id)
+  def addProduct(id: Long) = Action { implicit request: Request[AnyContent] =>
+    Ok("product added to cart " + id)
   }
 
-  def removeProduct(productId: Long, id: Long) = Action { implicit request: Request[AnyContent] =>
-    Ok("product " + productId + " removed from cart " + id)
+  def removeProduct(id: Long, prdCode: String) = Action { implicit request: Request[AnyContent] =>
+    Ok("product " + prdCode + " removed from cart " + id)
   }
 
 }

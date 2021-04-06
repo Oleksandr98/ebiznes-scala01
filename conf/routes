@@ -36,8 +36,8 @@ POST    /orders/:id/cancel           controllers.OrderController.cancelOrder(id:
 #ShoppingCartController
 GET     /shopping-cart/:id              controllers.ShoppingCartController.getCartProducts(id:Long)
 POST    /shopping-cart/create           controllers.ShoppingCartController.createCart()
-GET     /shopping-cart/:cartId/:prdId   controllers.ShoppingCartController.addProduct(prdId:Long, cartId:Long)
-DELETE  /shopping-cart/:cartId/:prdId   controllers.ShoppingCartController.removeProduct(prdId:Long, cartId:Long)
+POST    /shopping-cart/:id              controllers.ShoppingCartController.addProduct(id:Long)
+DELETE  /shopping-cart/:id/:prdCode     controllers.ShoppingCartController.removeProduct(id:Long, prdCode:String)
 
 #CouponsController
 GET     /coupons                    controllers.CouponsController.getCoupons()
