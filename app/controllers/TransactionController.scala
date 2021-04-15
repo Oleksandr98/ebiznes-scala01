@@ -11,14 +11,15 @@ class TransactionController @Inject()(val controllerComponents: ControllerCompon
     Ok("Welcome to transaction controller")
   }
 
-  def getCustomerTransactions(customerId: Long) = Action { implicit request: Request[AnyContent] =>
-    Ok("customer " + customerId + " transactions")
+  def modifyTransaction(id: Long) = Action { implicit request: Request[AnyContent] =>
+    Ok("Transaction " + id + " updated")
   }
 
-  def processTransaction() = Action { implicit request: Request[AnyContent] =>
+  def createSaleTransaction() = Action { implicit request: Request[AnyContent] =>
     Ok("OK")
   }
 
+  // transactions cannot be removed, can only be reversed
   def reverseTransaction(id: Long) = Action { implicit request: Request[AnyContent] =>
     Ok("transaction " + id + " reversed")
   }

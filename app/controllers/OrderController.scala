@@ -15,11 +15,7 @@ class OrderController @Inject()(val controllerComponents: ControllerComponents) 
     Ok("Order " + id)
   }
 
-  def getCustomerOrders(customerId: Long) = Action { implicit request: Request[AnyContent] =>
-    Ok("customer " + customerId + " orders")
-  }
-
-  def placeOrder() = Action { implicit request: Request[AnyContent] =>
+  def createOrder() = Action { implicit request: Request[AnyContent] =>
     Created("created")
   }
 

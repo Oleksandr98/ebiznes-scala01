@@ -9,10 +9,11 @@ POST    /customers/enroll           controllers.CustomerController.enrollCustome
 POST    /customers/:id/block        controllers.CustomerController.blockCustomer(id:Long)
 POST    /customers/:id/close        controllers.CustomerController.closeCustomer(id:Long)
 POST    /customers/:id/unblock      controllers.CustomerController.unblockCustomer(id:Long)
-POST    /customers/:id/update       controllers.CustomerController.modifyCustomer(id:Long)
+PUT     /customers/:id              controllers.CustomerController.modifyCustomer(id:Long)
 
 #CardController
 GET     /cards                      controllers.CardController.getCards()
+PUT     /cards/:id                  controllers.CardController.modifyCard(id:Long)
 POST    /cards/add                  controllers.CardController.addCard()
 POST    /cards/:id/close            controllers.CardController.closeCard(id:Long)
 POST    /cards/:id/block            controllers.CardController.blockCard(id:Long)
@@ -22,27 +23,26 @@ GET     /cards/:id                  controllers.CardController.getCard(id:Long)
 GET     /products                    controllers.ProductController.getProducts()
 GET     /products/:id                controllers.ProductController.getProduct(id:Long)
 POST    /products/add                controllers.ProductController.addProduct()
-POST    /products/:id/modify         controllers.ProductController.updateProduct(id:Long)
+PUT     /products/:id                controllers.ProductController.updateProduct(id:Long)
 DELETE  /products/:id                controllers.ProductController.removeProduct(id:Long)
 
 #OrderController
 GET     /orders                      controllers.OrderController.getOrders()
 GET     /orders/:id                  controllers.OrderController.getOrder(id:Long)
-GET     /orders/:customerId/orders   controllers.OrderController.getCustomerOrders(customerId:Long)
-POST    /orders/add                  controllers.OrderController.placeOrder()
-POST    /orders/:id/modify           controllers.OrderController.modifyOrder(id:Long)
-POST    /orders/:id/cancel           controllers.OrderController.cancelOrder(id:Long)
+POST    /orders/add                  controllers.OrderController.createOrder()
+PUT     /orders/:id                  controllers.OrderController.modifyOrder(id:Long)
+DELETE  /orders/:id                  controllers.OrderController.cancelOrder(id:Long)
 
 #ShoppingCartController
-GET     /shopping-cart/:id              controllers.ShoppingCartController.getCartProducts(id:Long)
+GET     /shopping-cart/:id              controllers.ShoppingCartController.getCart(id:Long)
 POST    /shopping-cart/create           controllers.ShoppingCartController.createCart()
-POST    /shopping-cart/:id              controllers.ShoppingCartController.addProduct(id:Long)
-DELETE  /shopping-cart/:id/:prdCode     controllers.ShoppingCartController.removeProduct(id:Long, prdCode:String)
+PUT     /shopping-cart/:id              controllers.ShoppingCartController.modifyCart(id:Long)
+DELETE  /shopping-cart/:id              controllers.ShoppingCartController.removeCart(id:Long)
 
 #CouponsController
 GET     /coupons                    controllers.CouponsController.getCoupons()
 POST    /coupons/add                controllers.CouponsController.addCoupon()
-POST    /coupons/:id/modify         controllers.CouponsController.modifyCoupon(id:Long)
+PUT     /coupons/:id                controllers.CouponsController.modifyCoupon(id:Long)
 DELETE  /coupons/:id                controllers.CouponsController.removeCoupon(id:Long)
 POST    /coupons/:id/use            controllers.CouponsController.invalidateCoupon(id:Long)
 GET     /coupons/:id                controllers.CouponsController.getCoupon(id:Long)
@@ -51,27 +51,27 @@ GET     /coupons/:id                controllers.CouponsController.getCoupon(id:L
 GET     /offers                     controllers.OffersController.getOffers()
 GET     /offers/:id                 controllers.OffersController.getOffer(id:Long)
 POST    /offers/add                 controllers.OffersController.addOffer()
-DELETE  /offers/:id/remove          controllers.OffersController.removeOffer(id:Long)
-POST    /offers/:customerId/add     controllers.OffersController.removeOffer(customerId:Long)
+DELETE  /offers/:id                 controllers.OffersController.removeOffer(id:Long)
+PUT     /offers/:id                 controllers.OffersController.modifyOffer(id:Long)
 
 #TransactionController
 GET     /transactions               controllers.TransactionController.getTransactions()
-GET     /transactions/:customerId   controllers.TransactionController.getCustomerTransactions(customerId:Long)
-POST    /transactions/sale          controllers.TransactionController.processTransaction()
+PUT     /transactions/:id           controllers.TransactionController.modifyTransaction(id:Long)
+POST    /transactions/sale          controllers.TransactionController.createSaleTransaction()
 POST    /transactions/:id/reverse   controllers.TransactionController.reverseTransaction(id:Long)
 
 #LocationController
 GET     /locations                  controllers.LocationController.getLocations()
 GET     /locations/:id              controllers.LocationController.getLocation(id:Long)
 POST    /locations/add              controllers.LocationController.addLocation()
-POST    /locations/:id/modify       controllers.LocationController.modifyLocation(id:Long)
-DELETE  /locations/:id/remove       controllers.LocationController.removeLocation(id:Long)
+PUT     /locations/:id              controllers.LocationController.modifyLocation(id:Long)
+DELETE  /locations/:id              controllers.LocationController.removeLocation(id:Long)
 
 #CategoryController
 GET     /categories                 controllers.CategoryController.getCategories()
 GET     /categories/:id             controllers.CategoryController.getCategory(id:Long)
 POST    /categories/add             controllers.CategoryController.addCategory()
-POST    /categories/:id/modify      controllers.CategoryController.modifyCategory(id:Long)
+PUT     /categories/:id             controllers.CategoryController.modifyCategory(id:Long)
 DELETE  /categories/:id             controllers.CategoryController.removeCategory(id:Long)
 
 #WelcomeController

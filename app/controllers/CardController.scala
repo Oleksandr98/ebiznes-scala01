@@ -15,6 +15,11 @@ class CardController @Inject()(val controllerComponents: ControllerComponents) e
     Created("created")
   }
 
+  def modifyCard(id: Long) = Action { implicit request: Request[AnyContent] =>
+    Created("card " + id + "updated")
+  }
+
+  // card cannot be removed, can be closed instead
   def closeCard(id: Long) = Action { implicit request: Request[AnyContent] =>
     Ok("closed")
   }

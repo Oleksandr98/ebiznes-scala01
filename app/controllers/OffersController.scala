@@ -23,8 +23,8 @@ class OffersController @Inject()(val controllerComponents: ControllerComponents)
     Ok("offer " + id + " removed")
   }
 
-  def addPersonalOffer(customerId: Long) = Action { implicit request: Request[AnyContent] =>
-    Created("created")
+  def modifyOffer(id: Long) = Action { implicit request: Request[AnyContent] =>
+    Ok("offer " + id + " updated")
   }
 
 }

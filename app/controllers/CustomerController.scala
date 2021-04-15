@@ -14,6 +14,7 @@ class CustomerController @Inject()(val controllerComponents: ControllerComponent
     Ok("Welcome to customer controller")
   }
 
+  // createCustomer
   def enrollCustomer() = Action { implicit request: Request[AnyContent] =>
     Created("Customer created")
   }
@@ -26,6 +27,7 @@ class CustomerController @Inject()(val controllerComponents: ControllerComponent
     Ok("Customer blocked")
   }
 
+  // customer cannot be removed, but can be closed
   def closeCustomer(id: Long) = Action { implicit request: Request[AnyContent] =>
     Ok("Customer closed")
   }
